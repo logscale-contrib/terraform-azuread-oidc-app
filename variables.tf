@@ -75,7 +75,7 @@ variable "secret_key" {
 }
 
 variable "secret_labels" {
-  type        = map()
+  type        = map
   default     = null
   description = "(optional) describe your variable"
 }
