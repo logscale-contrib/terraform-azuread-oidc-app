@@ -13,9 +13,9 @@ variable "sign_in_audience" {
 }
 
 variable "group_membership_claims" {
-    type = list(string)
-    default = ["ApplicationGroup"]
-    description = "(optional) describe your variable"
+  type        = list(string)
+  default     = ["ApplicationGroup"]
+  description = "(optional) describe your variable"
 }
 
 variable "required_resource_access" {
@@ -61,15 +61,21 @@ variable "public_client" {
 
 
 variable "secret_name" {
-    type = string
-    description = "(optional) describe your variable"
+  type        = string
+  description = "(optional) describe your variable"
 }
 variable "secret_namespace" {
-    type = string
-    description = "(optional) describe your variable"
+  type        = string
+  description = "(optional) describe your variable"
 }
 variable "secret_key" {
-    type = string
-    default = "token"
-    description = "(optional) describe your variable"
+  type        = string
+  default     = "token"
+  description = "(optional) describe your variable"
+}
+
+variable "secret_labels" {
+  type        = map()
+  default     = null
+  description = "(optional) describe your variable"
 }
