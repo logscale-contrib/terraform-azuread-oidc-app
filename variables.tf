@@ -75,7 +75,13 @@ variable "secret_key" {
 }
 
 variable "secret_labels" {
-  type        = map
+  type        = map(any)
   default     = null
+  description = "(optional) describe your variable"
+}
+
+
+variable "assigned_groups" {
+  type        = list(string)
   description = "(optional) describe your variable"
 }

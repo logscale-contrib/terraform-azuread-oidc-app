@@ -55,9 +55,9 @@ resource "azuread_service_principal" "app" {
   app_role_assignment_required = false
   owners                       = [data.azuread_client_config.current.object_id]
 
-  
+
   preferred_single_sign_on_mode = "oidc"
-  use_existing = true
+  use_existing                  = true
 
   feature_tags {
     enterprise = true
@@ -78,3 +78,17 @@ resource "azuread_app_role_assignment" "consent" {
   app_role_id         = var.consent_resource_access[count.index].resource_access
 }
 
+data "azuread_group" "assignment" {
+  count            = length(var.assigned_groups)
+  display_name     = var.assigned_groups[count.index]
+  security_enabled = true
+}
+
+resource "azuread_app_role_assignment" "group_assignment" {
+  count = length(var.assigned_groups)
+
+  app_role_id         = "00000000-0000-0000-0000-000000000000" # default assignment level
+  resource_object_id  = azuread_service_principal.app.object_id
+  principal_object_id = data.azuread_group.assignment[count.index].id
+
+}
