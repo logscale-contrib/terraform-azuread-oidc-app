@@ -11,6 +11,24 @@ resource "azuread_application" "app" {
 
   group_membership_claims = var.group_membership_claims
 
+  optional_claims {
+    access_token {
+      additional_properties = [
+        "sam_account_name",
+      ]
+      essential = true
+      name      = "groups"
+    }
+
+    id_token {
+      additional_properties = [
+        "sam_account_name",
+      ]
+      essential = true
+      name      = "groups"
+    }
+  }
+
   dynamic "required_resource_access" {
     for_each = var.required_resource_access
     content {

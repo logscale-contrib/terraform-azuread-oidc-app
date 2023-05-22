@@ -26,6 +26,7 @@ variable "required_resource_access" {
       type = string
     }))
   }))
+  default     = []
   description = "(optional) describe your variable"
 }
 variable "consent_resource_access" {
@@ -33,6 +34,7 @@ variable "consent_resource_access" {
     resource_app_id = string
     resource_access = string
   }))
+  default     = []
   description = "(optional) describe your variable"
 }
 variable "web" {
