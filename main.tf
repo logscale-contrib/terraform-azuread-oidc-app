@@ -51,6 +51,21 @@ resource "azuread_application" "app" {
 
 resource "azuread_service_principal" "app" {
   application_id = azuread_application.app.application_id
+
+  app_role_assignment_required = false
+  owners                       = [data.azuread_client_config.current.object_id]
+
+  display_name = var.name
+
+  preferred_single_sign_on_mode = "oidc"
+  use_existing = true
+    
+  feature_tags {
+    enterprise = true
+    gallery    = true
+  }
+
+
 }
 resource "azuread_service_principal" "target" {
   count          = length(var.consent_resource_access)
