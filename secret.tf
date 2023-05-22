@@ -10,7 +10,7 @@ resource "kubernetes_secret" "secret" {
   }
 
   data = {
-    var.secret_key = azuread_application_password.secret.value
+    "${var.secret_key}" = azuread_application_password.secret.value
   }
 
 
