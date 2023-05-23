@@ -116,7 +116,7 @@ data "azuread_group" "assignment" {
 resource "azuread_app_role_assignment" "group_assignment" {
   count = length(var.assigned_groups)
 
-  app_role_id         = "00000000-0000-0000-0000-000000000000" # default assignment level
+  app_role_id         = "00000000-0000-0000-0000-000000000000"
   resource_object_id  = azuread_service_principal.app.object_id
   principal_object_id = data.azuread_group.assignment[count.index].id
 
