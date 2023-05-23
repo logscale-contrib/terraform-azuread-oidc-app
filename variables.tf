@@ -15,13 +15,13 @@ variable "sign_in_audience" {
 variable "app_roles" {
   type = list(object({
     allowed_member_types = optional(list(string), ["User"])
-    description          = optional(string)
+    description          = optional(string, "App Role")
     display_name         = string
     enabled              = optional(bool, true)
     id                   = string
     value                = optional(string)
   }))
-
+  default     = []
   description = "(optional) describe your variable"
 }
 variable "group_membership_claims" {
@@ -97,8 +97,9 @@ variable "secret_labels" {
 
 variable "assigned_groups" {
   type = list(object({
-    display_name = string
-    app_role_id  = optional(string, "app_role_id")
+    group_id    = string
+    app_role_id = optional(string, "app_role_id")
   }))
+  default     = []
   description = "(optional) describe your variable"
 }

@@ -118,6 +118,6 @@ resource "azuread_app_role_assignment" "group_assignment" {
 
   app_role_id         = var.assigned_groups[count.index].app_role_id
   resource_object_id  = azuread_service_principal.app.object_id
-  principal_object_id = data.azuread_group.assignment[count.index].id
+  principal_object_id = var.assigned_groups[count.index].group_id
 
 }
