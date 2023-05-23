@@ -96,9 +96,9 @@ variable "secret_labels" {
 
 
 variable "assigned_groups" {
-  type        = list(object{
+  type = list(object({
     display_name = string
-    app_role_id = optional(string,"app_role_id")
-  })
+    app_role_id  = optional(string, "app_role_id")
+  }))
   description = "(optional) describe your variable"
 }
