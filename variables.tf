@@ -14,7 +14,7 @@ variable "sign_in_audience" {
 
 variable "app_roles" {
   type = list(object({
-    allowed_member_types = optional(string, "User")
+    allowed_member_types = optional(list(string), ["User"])
     description          = optional(string)
     display_name         = string
     enabled              = optional(bool, true)
