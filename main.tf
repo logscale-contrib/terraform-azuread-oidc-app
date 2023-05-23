@@ -107,12 +107,6 @@ resource "azuread_app_role_assignment" "consent" {
   app_role_id         = var.consent_resource_access[count.index].resource_access
 }
 
-data "azuread_group" "assignment" {
-  count            = length(var.assigned_groups)
-  display_name     = var.assigned_groups[count.index].display_name
-  security_enabled = true
-}
-
 resource "azuread_app_role_assignment" "group_assignment" {
   count = length(var.assigned_groups)
 
