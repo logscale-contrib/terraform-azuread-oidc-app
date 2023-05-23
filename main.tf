@@ -8,6 +8,17 @@ resource "azuread_application" "app" {
   owners           = [data.azuread_client_config.current.object_id]
   sign_in_audience = var.sign_in_audience
 
+  dynamic "app_role" {
+    for_each = var.app_roles
+    content {
+      allowed_member_types = app_role.value["allowed_member_types"]
+      description          = app_role.value["description"]
+      display_name         = app_role.value["display_name"]
+      enabled              = app_role.value["enabled"]
+      id                   = app_role.value["id"]
+      value                = app_role.value["value"]
+    }
+  }
 
   group_membership_claims = var.group_membership_claims
 

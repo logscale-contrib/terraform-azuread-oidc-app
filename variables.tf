@@ -12,6 +12,18 @@ variable "sign_in_audience" {
   description = "(optional) describe your variable"
 }
 
+variable "app_roles" {
+  type = list(object({
+    allowed_member_types = optional(string, "User")
+    description          = optional(string)
+    display_name         = string
+    enabled              = optional(bool, true)
+    id                   = string
+    value                = optional(string)
+  }))
+
+  description = "(optional) describe your variable"
+}
 variable "group_membership_claims" {
   type        = list(string)
   default     = ["ApplicationGroup"]
