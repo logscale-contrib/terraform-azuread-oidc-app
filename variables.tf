@@ -30,6 +30,7 @@ variable "group_membership_claims" {
   description = "(optional) describe your variable"
 }
 
+
 variable "required_resource_access" {
   type = list(object({
     resource_app_id = string
@@ -103,4 +104,3 @@ variable "assigned_groups" {
   default     = []
   description = "(optional) describe your variable"
 }
-  

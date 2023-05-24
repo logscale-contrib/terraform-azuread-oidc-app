@@ -25,7 +25,7 @@ resource "azuread_application" "app" {
   optional_claims {
     access_token {
       additional_properties = [
-        "sam_account_name",
+        "sam_account_name","emit_as_roles"
       ]
       essential = true
       name      = "groups"
@@ -33,10 +33,10 @@ resource "azuread_application" "app" {
 
     id_token {
       additional_properties = [
-        "sam_account_name",
+        "sam_account_name","emit_as_roles"
       ]
       essential = true
-      name      = "groups"
+      name      = "groups"      
     }
   }
 
