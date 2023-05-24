@@ -96,6 +96,7 @@ resource "azuread_service_principal" "app" {
 
 }
 resource "azuread_service_principal" "target" {
+  depends_on     = [azuread_application.app]
   count          = length(var.consent_resource_access)
   application_id = var.consent_resource_access[count.index].resource_app_id
   use_existing   = true

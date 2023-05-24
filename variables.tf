@@ -103,3 +103,4 @@ variable "assigned_groups" {
   default     = []
   description = "(optional) describe your variable"
 }
+  
