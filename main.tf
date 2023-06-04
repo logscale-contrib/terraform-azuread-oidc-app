@@ -116,3 +116,8 @@ resource "azuread_app_role_assignment" "group_assignment" {
   principal_object_id = var.assigned_groups[count.index].group_id
 
 }
+
+
+resource "azuread_application_password" "secret" {
+  application_object_id = azuread_application.app.object_id
+}
