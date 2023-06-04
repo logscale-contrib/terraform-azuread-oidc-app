@@ -7,3 +7,7 @@ output "directory_tenant_id" {
 output "issuer" {
   value = "https://login.microsoftonline.com/${data.azuread_client_config.current.tenant_id}/v2.0"
 }
+output "client_secret" {
+  sensitive = true
+  value     = azuread_application_password.secret.value
+}
