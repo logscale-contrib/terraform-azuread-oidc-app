@@ -75,27 +75,6 @@ variable "public_client" {
 
 
 
-variable "secret_name" {
-  type        = string
-  description = "(optional) describe your variable"
-}
-variable "secret_namespace" {
-  type        = string
-  description = "(optional) describe your variable"
-}
-variable "secret_key" {
-  type        = string
-  default     = "token"
-  description = "(optional) describe your variable"
-}
-
-variable "secret_labels" {
-  type        = map(any)
-  default     = null
-  description = "(optional) describe your variable"
-}
-
-
 variable "assigned_groups" {
   type = list(object({
     group_id    = string
